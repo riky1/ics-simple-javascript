@@ -1,0 +1,21 @@
+{
+  "common": {
+    "startDate": "2024-03-19",
+    "startTime": "18:00:00",
+    "endDate": "2024-03-19",
+    "endTime": "22:30:00",
+    "status": "CONFIRMED"
+  },
+  "detailsIt": {
+    "title": "Titolo evento",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.<br />Ut enim ad minim veniam: <a href=\"https://www.google.com\">quis nostrum</a>",
+    "location": "Luogo",
+    "url": "https://www.google.com"
+  },
+  "detailsEn": {
+    "title": "Event title",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed do eiusmod tempor incidunt ut labore et dolore magna aliqua.<br />Ut enim ad minim veniam: <a href=\"https://www.google.com\">quis nostrum</a>",
+    "location": "Location",
+    "url": "https://www.google.com"
+  }
+}
