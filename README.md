@@ -1,0 +1,1 @@
+# Simple Javascript ics for HTML use
