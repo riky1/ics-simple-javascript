@@ -49,3 +49,22 @@ Add data to the `icsEventData.json` file
   }
 }
 ```
+
+## Ics parameters specification
+
+### Show event like teams invitation
+
+```html
+"ORGANIZER;CN="+ commons.organizer.name + ":mailto:" + commons.organizer.email + "\n" +
+```
+
+Needs to add parameters in json file
+
+```json
+"common": {
+    ...
+    "organizer": {
+      "name": "John Doe",
+      "mail": "john.doe@mail.com"
+    }
+  },
