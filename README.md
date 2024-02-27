@@ -2,11 +2,7 @@
 
 Generate and download an ics file for calendar events.
 
-Supports multi languages based on HTML language
-
-```html
-<html lang="en">
-```
+Supports multi languages based on HTML language `<html lang="en">`
 
 ## Usage
 
