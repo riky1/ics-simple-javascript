@@ -69,7 +69,6 @@ var ICSEVENT;
   };
 
   async function handleDownload() {
-    const $button = document.queryselector('#downloadIcs');
     const filename = 'calendar.ics';
     const data = await jsonData();
 
@@ -92,6 +91,7 @@ var ICSEVENT;
     URL.revokeObjectURL(url);
   }
 
+  const $button = document.queryselector('#downloadIcs');
   $button.addEventListener('click', handleDownload, false);
 
 })(ICSEVENT || (ICSEVENT = {}));
