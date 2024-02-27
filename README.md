@@ -16,6 +16,12 @@ Create a link to the `ics-event.js` file at the end of the HTML file
 <script src="/src/ics-event.js"></script>
 ```
 
+In `.ics` file specify json-data file path
+
+```javascript
+const jsonUrl = "../data/icsEventData.json";
+```
+
 Insert a link with `id="downloadIcs`
 
 ```html
