@@ -1,4 +1,4 @@
-# Simple Javascript ics for HTML use
+# Simple Javascript ics calendar for HTML use
 
 Generate and download an ics file for calendar events.
 
