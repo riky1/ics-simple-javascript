@@ -68,15 +68,8 @@ var ICSEVENT;
     return event;
   };
 
-  async function handleDownload() {
+  function createIcsFile(event) {
     const filename = 'calendar.ics';
-    const data = await jsonData();
-
-    const common = data.common;
-    const details = lang === 'it' ? data.detailsIt : data.detailsEn;
-
-    const event = createEvent(common, details);
-
     const file = new File([event], filename, { type: 'text/calendar' });
     const url = URL.createObjectURL(file);
 
@@ -91,7 +84,18 @@ var ICSEVENT;
     URL.revokeObjectURL(url);
   }
 
-  const $button = document.queryselector('#downloadIcs');
+  async function handleDownload() {
+    const data = await jsonData();
+
+    const common = data.common;
+    const details = lang === 'it' ? data.detailsIt : data.detailsEn;
+
+    const event = createEvent(common, details);
+
+    createIcsFile(event);
+  }
+
+  const $button = document.querySelector('#downloadIcs');
   $button.addEventListener('click', handleDownload, false);
 
 })(ICSEVENT || (ICSEVENT = {}));
