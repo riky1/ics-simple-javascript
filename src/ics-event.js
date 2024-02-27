@@ -4,8 +4,14 @@ var ICSEVENT;
 
 (function (ICSEVENT) {
 
-  const lang = document.documentElement.lang.toLowerCase();
+  const $button = document.querySelector('#downloadIcs');
+  const lang = document.documentElement.lang.toLowerCase();  
+  const jsonUrl = "../data/icsEventData.json";
 
+  /**
+   * load data from json file
+   * @return {OBJECT} jsonData
+   */
   const jsonData = async () => {
     try {
       const response = await fetch(jsonUrl);
@@ -15,12 +21,22 @@ var ICSEVENT;
     }
   };
 
+  /**
+   * format dateTIme
+   * @param {string} date - type: 2024-03-19
+   * @param {string} time - type: 22:30:00
+   * @return {STRING} dateTime type: 20240319T223000Z
+   */
   const dateFormat = (date, time) => {
     const d = date.replaceAll('-', '');
     const t = time.replaceAll(':', '');
     return d + 'T' + t + 'Z';
   };
 
+  /**
+   * get current dateTime
+   * @return {OBJECT} dateTime type: { 2024-03-19, 22:30:00 }
+   */
   const currentDate = () => {
     const date = new Date();
 
@@ -30,6 +46,10 @@ var ICSEVENT;
     return { currDate, currTime };
   };
 
+  /**
+   * get uuid
+   * @return {STRING} uid
+   */
   function uuidv4() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(
       /[xy]/g,
@@ -41,6 +61,12 @@ var ICSEVENT;
     );
   }
 
+  /**
+   * create calendar parameters
+   * @param {Object} common - common data
+   * @param {Object} details - language-specific data
+   * @return {STRING} ics parameters
+   */
   const createEvent = (common, details) => {
     const event =
       'BEGIN:VCALENDAR\n' +
@@ -68,6 +94,10 @@ var ICSEVENT;
     return event;
   };
 
+  /**
+   * create and download ics file
+   * @param {string} event - ics parameters
+   */
   function createIcsFile(event) {
     const filename = 'calendar.ics';
     const file = new File([event], filename, { type: 'text/calendar' });
@@ -84,6 +114,9 @@ var ICSEVENT;
     URL.revokeObjectURL(url);
   }
 
+  /**
+   * handle click on button
+   */
   async function handleDownload() {
     const data = await jsonData();
 
@@ -95,7 +128,6 @@ var ICSEVENT;
     createIcsFile(event);
   }
 
-  const $button = document.querySelector('#downloadIcs');
   $button.addEventListener('click', handleDownload, false);
 
 })(ICSEVENT || (ICSEVENT = {}));
