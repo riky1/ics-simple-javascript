@@ -1,8 +1,8 @@
 'use strict'; // just to make sure
 
-var ICSEVENT;
+var IcsEvent;
 
-(function (ICSEVENT) {
+(function (IcsEvent) {
 
   const $button = document.querySelector('#downloadIcs');
   const lang = document.documentElement.lang.toLowerCase();  
@@ -130,4 +130,4 @@ var ICSEVENT;
 
   $button.addEventListener('click', handleDownload, false);
 
-})(ICSEVENT || (ICSEVENT = {}));
+})(IcsEvent || (IcsEvent = {}));
